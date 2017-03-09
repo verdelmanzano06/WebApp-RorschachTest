@@ -1,0 +1,211 @@
+<html>
+	<head>
+		<title>Machine Problem 5</title>
+
+	<style type="text/css">
+		input[type="button"] {
+			padding: 1%;
+			font-size: 150%;
+			margin-top: 10%;
+			margin-left: 3%;
+			font-style: italic;
+		}
+		#image {
+			float: left;
+			margin: 5%;
+			border: 2px solid black;
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+	</head>
+<body>
+
+<img id='image' src="01.jpg" style="background-size: 100% 100%;">
+<br>
+<input type="button" value="Click here to answer" onclick="answerme();">
+
+<script type='text/javascript'>
+
+var scene = 1;
+var number = 0;
+var correct = 0;
+var wrong = 0;
+
+function answerme(){
+
+	var flag = true;
+
+	while (flag){
+
+	var answer = prompt("Enter your designated answer");
+		if (!isNaN(answer)){
+			answer = "isanumber";
+		}
+
+
+	switch(scene){
+		case 1: 	
+			switch(answer){ 
+				case "bat":
+				case "butterfly":
+				case "moth": alert("You are Normal");
+				document.getElementById("image").src="02.jpg";
+				scene = scene + 1;
+				flag = false;
+				correct = correct + 1;
+				break;
+
+				case "isanumber":
+				if (number >= 2){
+					document.documentElement.innerHTML = '';
+					document.write("<h2>Calling 911!</h2>");
+					flag = false;
+				}else{
+					number = number + 1;
+					flag = true;
+				}
+				break;
+
+				case null:
+				flag = false;
+				break;
+
+				default: alert("You are Addict");
+					flag = false;
+					scene = scene + 1;
+					wrong = wrong + 1;
+					document.getElementById("image").src="02.jpg";
+				break;
+			}
+		break;
+
+		case 2:
+			switch(answer){ 
+					case "human heads":
+					case "faces": 
+					alert("You are Normal");
+					document.getElementById("image").src="03.jpg";
+					scene = scene + 1;
+					flag = false;
+					correct = correct + 1;
+					break;
+
+					case "isanumber":
+					if (number >= 2){
+						document.documentElement.innerHTML = '';
+						document.write("<h2>Calling 911!</h2>");
+						flag = false;
+					}else{
+						number = number + 1;
+						flag = true;
+					}
+					break;
+
+					case "null":
+					flag = false;
+					break;
+
+					default: alert("You are Addict");
+					flag = false;
+					scene = scene + 1;
+					wrong = wrong + 1;
+					document.getElementById("image").src="03.jpg";
+					break;
+			}
+		break;
+
+		case 3:
+			switch(answer){ 
+					case "animal hide": 
+					case "skin": 
+					case "rug": alert("You are Normal");
+					document.getElementById("image").src="04.jpg";
+					scene = scene + 1;
+					flag = false;
+					correct = correct + 1;
+					break;
+
+					case "isanumber":
+					if (number >= 2){
+						document.documentElement.innerHTML = '';
+						document.write("<h2>Calling 911!</h2>");
+						flag = false;
+					}else{
+						number = number + 1;
+						flag = true;
+					}
+					break;
+
+					case "null":
+					flag = false;
+					break;
+
+					default: alert("You are Addict");
+					flag = false;
+					scene = scene + 1;
+					wrong = wrong + 1;
+					document.getElementById("image").src="04.jpg";
+					break;
+			}
+		break;
+
+		case 4:
+			switch(answer){
+					case "animal": 
+					case "dog": 
+					case "elephant":
+					case "bear": alert("You're Normal");
+					scene = scene + 1;
+					flag = false;
+					correct = correct + 1;
+					break;
+
+					case "isanumber":
+					if (number >= 2){
+						document.documentElement.innerHTML = '';
+						document.write("<h2>Calling 911!</h2>");
+						flag = false;
+					}else{
+						number = number + 1;
+						flag = true;
+					}
+					break;
+
+					case "null":
+					flag = false;
+					break;
+
+					default: alert("You are Addict");
+					flag = false;
+					scene = scene + 1;
+					wrong = wrong + 1;
+					break;
+			}
+
+		case 5:
+			var message;
+			switch (wrong){
+				case 0:
+				case 1:
+				case 2: message = "<br/>You are normal person";
+				break;
+
+				case 3:
+				case 4: message =  "<br/>You are addict person!";
+				break;
+			}
+			document.documentElement.innerHTML = '';
+			document.write("<h1>Number of Correct: " + correct + "<br>Number of Wrong: " + wrong + "<br>" + message + "</h1>");
+			flag = false;
+		break;
+	}
+
+	}
+}
+
+
+</script>
+
+</body>
+</html>
